@@ -3,7 +3,7 @@ import chefService from '../../../assets/home/chef-service.jpg'
 
 const MiniBanner = () => {
     return (
-      <div className='my-20'>
+      <div className='mt-20'>
         <div
           className="hero min-h-[512px]"
           style={{
@@ -11,9 +11,9 @@ const MiniBanner = () => {
           }}
         >
           <div className="hero-overlay bg-opacity-60"></div>
-          <div className="hero-content text-center py-20 px-40 bg-white text-gray-800">
+          <div className="hero-content text-center py-10 lg:py-20 lg:px-40 bg-white text-gray-800">
             <div className="max-w-md ">
-              <h1 className="mb-5 text-4xl uppercase font-second_font">
+              <h1 className="mb-5 text-2xl lg:text-4xl uppercase font-second_font">
                 Bistro Boss
               </h1>
               <p className="mb-5">

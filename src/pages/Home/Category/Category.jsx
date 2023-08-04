@@ -32,31 +32,31 @@ const Category = () => {
           >
             <SwiperSlide>
               <img src={slide1} alt="" />
-              <h3 className="text-3xl -m-16 text-center text-gray-600 font-second_font">
+              <h3 className="lg:text-3xl lg:-m-16 -m-10 text-center text-gray-600 font-second_font">
                 SALADS
               </h3>
             </SwiperSlide>
             <SwiperSlide>
               <img src={slide2} alt="" />
-              <h3 className="text-3xl -m-16 text-center text-gray-600 font-second_font">
+              <h3 className="lg:text-3xl lg:-m-16 -m-10 text-center text-gray-600 font-second_font">
                 PIZZAS
               </h3>
             </SwiperSlide>
             <SwiperSlide>
               <img src={slide3} alt="" />
-              <h3 className="text-3xl -m-16 text-center text-gray-600 font-second_font">
+              <h3 className="lg:text-3xl lg:-m-16 -m-10 text-center text-gray-600 font-second_font">
                 SOUPS
               </h3>
             </SwiperSlide>
             <SwiperSlide>
               <img src={slide4} alt="" />
-              <h3 className="text-3xl -m-16 text-center text-gray-600 font-second_font">
+              <h3 className="lg:text-3xl lg:-m-16 -m-10 text-center text-gray-600 font-second_font">
                 DESSERTS
               </h3>
             </SwiperSlide>
             <SwiperSlide>
               <img src={slide5} alt="" />
-              {/*  <h3 className='text-3xl -m-16 text-center text-gray-600 font-second_font'>SALADS</h3> */}
+              {/*  <h3 className='lg:text-3xl lg:-m-16 -m-10 text-center text-gray-600 font-second_font'>SALADS</h3> */}
             </SwiperSlide>
           </Swiper>
         </section>

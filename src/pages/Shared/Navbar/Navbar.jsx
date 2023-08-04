@@ -44,7 +44,7 @@ const Navbar = () => {
       <div
         className={`navbar fixed z-10  ${
           isScrolled
-            ? "bg-white text-black"
+            ? "bg-white text-red-500"
             : "bg-black text-white bg-opacity-30"
         } max-w-screen-xl mx-auto text-white transition-all duration-300`}
       >

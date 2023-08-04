@@ -24,19 +24,19 @@ const Navbar = () => {
   const navOptions = (
     <>
       <li>
-        <a>Home</a>
+        <Link to='/'>Home</Link>
       </li>
       <li>
-        <a> Contact Us</a>
+        <Link> Contact Us</Link>
       </li>
       <li>
-        <a>Dashboard</a>
+        <Link>Dashboard</Link>
       </li>
       <li>
-        <a>Our Menu</a>
+        <Link to='menu'>Our Menu</Link>
       </li>
       <li>
-        <a>Our Shop</a>
+        <Link>Our Shop</Link>
       </li>
     </>
   );

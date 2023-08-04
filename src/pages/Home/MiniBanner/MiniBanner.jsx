@@ -3,7 +3,7 @@ import chefService from '../../../assets/home/chef-service.jpg'
 
 const MiniBanner = () => {
     return (
-      <div className='mt-20'>
+      <div className='mt-24'>
         <div
           className="hero min-h-[512px]"
           style={{

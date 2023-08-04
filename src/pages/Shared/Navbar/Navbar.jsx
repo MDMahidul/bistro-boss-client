@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -46,7 +47,7 @@ const Navbar = () => {
           isScrolled
             ? "bg-white text-red-500"
             : "bg-black text-white bg-opacity-30"
-        } max-w-screen-xl mx-auto text-white transition-all duration-300`}
+        } max-w-screen-xl mx-auto text-white transition-all duration-300 shadow`}
       >
         <div className="navbar-start">
           <div className="dropdown">
@@ -73,7 +74,13 @@ const Navbar = () => {
               {navOptions}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">BISTRO BOSS</a>
+          <Link
+            to="/"
+            className="cursor-pointer normal-case font-second_font text-2xl leading-7 ml-2"
+          >
+            BISTRO BOSS <br />
+            <span className="tracking-[5px] ">Restaurant</span>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navOptions}</ul>

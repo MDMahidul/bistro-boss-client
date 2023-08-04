@@ -4,7 +4,7 @@ import slide1 from '../../../assets/menu/salad-bg.jpg';
 
 const ChefRecommends = () => {
     return (
-      <section className='mb-10'>
+      <section className='lg:mb-28'>
         <SectionTitle
           subHeading={"---Should Try---"}
           heading={"CHEF RECOMMENDS"}

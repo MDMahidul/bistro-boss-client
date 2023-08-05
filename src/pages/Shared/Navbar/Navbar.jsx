@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import ActiveLink from '../ActiveLink/ActiveLink';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -24,19 +25,19 @@ const Navbar = () => {
   const navOptions = (
     <>
       <li>
-        <Link to='/'>Home</Link>
+        <ActiveLink to="/">Home</ActiveLink>
       </li>
       <li>
-        <Link> Contact Us</Link>
+        <ActiveLink to="contact"> Contact Us</ActiveLink>
       </li>
       <li>
-        <Link>Dashboard</Link>
+        <ActiveLink to="dashboard">Dashboard</ActiveLink>
       </li>
       <li>
-        <Link to='menu'>Our Menu</Link>
+        <ActiveLink to="menu">Our Menu</ActiveLink>
       </li>
       <li>
-        <Link>Our Shop</Link>
+        <ActiveLink to="ourshop">Our Shop</ActiveLink>
       </li>
     </>
   );
@@ -45,7 +46,7 @@ const Navbar = () => {
       <div
         className={`navbar fixed z-10  ${
           isScrolled
-            ? "bg-white text-black"
+            ? "bg-white text-red-600"
             : "bg-black text-white bg-opacity-30"
         } max-w-screen-xl mx-auto text-white transition-all duration-300 shadow`}
       >
@@ -69,7 +70,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 font-semibold"
             >
               {navOptions}
             </ul>
@@ -83,7 +84,9 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{navOptions}</ul>
+          <ul className="menu menu-horizontal px-1 font-bold">
+            {navOptions}
+          </ul>
         </div>
         <div className="navbar-end">
           <a className="btn">Button</a>

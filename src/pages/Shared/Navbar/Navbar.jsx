@@ -37,7 +37,7 @@ const Navbar = () => {
         <ActiveLink to="menu">Our Menu</ActiveLink>
       </li>
       <li>
-        <ActiveLink to="ourshop">Our Shop</ActiveLink>
+        <ActiveLink to="order/salad">Order Food</ActiveLink>
       </li>
     </>
   );
@@ -47,8 +47,8 @@ const Navbar = () => {
         className={`navbar fixed z-10  ${
           isScrolled
             ? "bg-white text-red-600"
-            : "bg-black text-white bg-opacity-30"
-        } max-w-screen-xl mx-auto text-white transition-all duration-300 shadow`}
+            : "bg-black text-white bg-opacity-50"
+        } max-w-screen-xl mx-auto transition-all duration-300 shadow`}
       >
         <div className="navbar-start">
           <div className="dropdown">

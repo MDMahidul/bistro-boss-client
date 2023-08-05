@@ -27,7 +27,6 @@ const Menu = () => {
           title={"OUR MENU"}
           subtitle={"Would you like to try a dish?"}
           tSize={"7xl"}
-          height={"800px"}
         ></Cover>
         {/* offered menu */}
         <div>
@@ -36,11 +35,7 @@ const Menu = () => {
             heading={"TODAY'S OFFER"}
           ></SectionTitle>
           <MenuCategory items={offered}></MenuCategory>
-          <div className="flex justify-center items-center mt-6">
-            <button className="btn btn-outline border-0 border-b-2 mt-4 text-gray-900 uppercase hover:text-white ">
-              ORDER YOUR FAVOURITE FOOD
-            </button>
-          </div>
+          
         </div>
         {/* Desseret menu */}
         <div className="mt-12">
@@ -52,11 +47,7 @@ const Menu = () => {
             items={desserts}
             img={dessertImg}
           ></MenuCategory>
-          <div className="flex justify-center items-center mt-6">
-            <button className="btn btn-outline border-0 border-b-2 mt-4 text-gray-900 uppercase hover:text-white ">
-              ORDER YOUR FAVOURITE FOOD
-            </button>
-          </div>
+          
         </div>
         {/* Pizza menu */}
         <div className="mt-12">
@@ -68,11 +59,7 @@ const Menu = () => {
             items={pizza}
             img={pizzaImg}
           ></MenuCategory>
-          <div className="flex justify-center items-center mt-6">
-            <button className="btn btn-outline border-0 border-b-2 mt-4 text-gray-900 uppercase hover:text-white ">
-              ORDER YOUR FAVOURITE FOOD
-            </button>
-          </div>
+          
         </div>
         {/* salad menu */}
         <div className="mt-12">
@@ -84,11 +71,7 @@ const Menu = () => {
             items={salad}
             img={saladImg}
           ></MenuCategory>
-          <div className="flex justify-center items-center mt-6">
-            <button className="btn btn-outline border-0 border-b-2 mt-4 text-gray-900 uppercase hover:text-white ">
-              ORDER YOUR FAVOURITE FOOD
-            </button>
-          </div>
+          
         </div>
         {/* soup menu */}
         <div className="mt-12 mb-14">
@@ -100,11 +83,7 @@ const Menu = () => {
             items={soup}
             img={soupImg}
           ></MenuCategory>
-          <div className="flex justify-center items-center mt-6">
-            <button className="btn btn-outline border-0 border-b-2 mt-4 text-gray-900 uppercase hover:text-white ">
-              ORDER YOUR FAVOURITE FOOD
-            </button>
-          </div>
+          
         </div>
       </div>
     );

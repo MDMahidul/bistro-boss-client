@@ -13,10 +13,9 @@ const Testimonials = () => {
     const [reviews,setReviews] = useState([]);
 
     useEffect(()=>{
-        fetch('reviews.json')
-            .then(res=>res.json())
-            .then(data=>
-                setReviews(data))
+        fetch("http://localhost:5000/reviews")
+          .then((res) => res.json())
+          .then((data) => setReviews(data));
     },[])
     return (
       <div className="mb-20">

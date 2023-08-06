@@ -3,15 +3,16 @@ import authbg from '../../assets/others/authentication.png'
 import loginImg from '../../assets/others/authentication2.png'
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from '../../providers/AuthProvider';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaGoogle } from 'react-icons/fa6';
 import { Helmet } from 'react-helmet-async';
+import Swal from 'sweetalert2';
 
 
 const Login = () => {
+    const navigate = useNavigate();
     const { signIn } = useContext(AuthContext);
-
-    const captchaRef = useRef(null);
+    const [errors,setErrors] = useState('')
     const [disabled,setDisabled] = useState(true);
 
     useEffect(() => {
@@ -23,13 +24,21 @@ const Login = () => {
         const form = e.target;
         const email = form.email.value;
         const password= form.password.value;
-        
+
         signIn(email,password)
             .then(result=>{
                 console.log(result.user);
+                Swal.fire({
+                  position: "center",
+                  icon: "success",
+                  title: "Login Successful!!!",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
             })
             .catch(error=>{
                 console.log(error);
+                setErrors(error.message)
             })
     }
 
@@ -37,8 +46,8 @@ const Login = () => {
         
     }
 
-    const handleCaptchValidation=()=>{
-        const user_captcha_value = captchaRef.current.value;
+    const handleCaptchValidation=(e)=>{
+        const user_captcha_value = e.target.value;
          if (validateCaptcha(user_captcha_value) == true) {
                 setDisabled(false);
          }
@@ -102,18 +111,12 @@ const Login = () => {
                         <LoadCanvasTemplate />
                       </label>
                       <input
-                        ref={captchaRef}
+                        onBlur={handleCaptchValidation}
                         type="text"
                         placeholder="Type the captcha"
                         name="captcha"
                         className="input input-bordered bg-white"
                       />
-                      <button
-                        className="btn btn-outline border-yellow-600 btn-xs text-yellow-600 mt-3"
-                        onClick={handleCaptchValidation}
-                      >
-                        Check Captcha
-                      </button>
                     </div>
                     <div className="form-control mt-6">
                       <input
@@ -122,6 +125,9 @@ const Login = () => {
                         type="submit"
                         value="Login"
                       />
+                      <span className="label-text-alt text-base text-center text-red-600 mt-2 font-bold">
+                        {errors}
+                      </span>
                       <div className="flex justify-center">
                         <label className="label ">
                           <span className="">

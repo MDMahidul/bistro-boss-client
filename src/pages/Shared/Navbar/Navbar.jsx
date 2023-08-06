@@ -1,8 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ActiveLink from '../ActiveLink/ActiveLink';
+import { AuthContext } from '../../../providers/AuthProvider';
 
 const Navbar = () => {
+      const {user,logOut} = useContext(AuthContext);
+    const handleLogOut=()=>{
+        logOut()
+          .then(()=>{})
+          .catch(error=>console.log(error))
+    }
   const [isScrolled, setIsScrolled] = useState(false);
   // Function to handle scroll event
   const handleScroll = () => {
@@ -39,9 +46,17 @@ const Navbar = () => {
       <li>
         <ActiveLink to="order/salad">Order Food</ActiveLink>
       </li>
-      <li>
-        <ActiveLink to="login">Login</ActiveLink>
-      </li>
+      {user ? (
+        <>
+          <button onClick={handleLogOut} className="btn-sm bg-yellow-600 rounded">Log Out</button>
+        </>
+      ) : (
+        <>
+          <li>
+            <ActiveLink to="login">Login</ActiveLink>
+          </li>
+        </>
+      )}
     </>
   );
   return (

@@ -48,12 +48,25 @@ const Navbar = () => {
       </li>
       {user ? (
         <>
-          <button onClick={handleLogOut} className="btn-sm bg-yellow-600 rounded">Log Out</button>
+        <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
+            <img
+              className="w-10 rounded-full border-red-600 border mr-2"
+              src={
+                user.photoURL
+                  ? user.photoURL
+                  : "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png"
+              }
+              alt=""/>
+              </div>
+          <button onClick={handleLogOut} className="btn-sm  btn-warning rounded">Log Out</button>
         </>
       ) : (
         <>
           <li>
             <ActiveLink to="login">Login</ActiveLink>
+          </li>
+          <li>
+            <ActiveLink to="signup">Sign Up</ActiveLink>
           </li>
         </>
       )}

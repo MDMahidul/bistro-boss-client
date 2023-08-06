@@ -3,7 +3,7 @@ import authbg from '../../assets/others/authentication.png'
 import loginImg from '../../assets/others/authentication2.png'
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from '../../providers/AuthProvider';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle } from 'react-icons/fa6';
 import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
@@ -11,7 +11,10 @@ import Swal from 'sweetalert2';
 
 const Login = () => {
     const navigate = useNavigate();
-    const { signIn } = useContext(AuthContext);
+    const location = useLocation();
+    const from = location.state?.form?.pathname || "/";
+
+    const { signIn,googleSignIn } = useContext(AuthContext);
     const [errors,setErrors] = useState('')
     const [disabled,setDisabled] = useState(true);
 
@@ -35,6 +38,7 @@ const Login = () => {
                   showConfirmButton: false,
                   timer: 1500,
                 });
+                navigate(from,{replace:true});
             })
             .catch(error=>{
                 console.log(error);
@@ -43,7 +47,21 @@ const Login = () => {
     }
 
     const handleGoogleSingin=()=>{
-        
+        googleSignIn()
+            .then(result=>{
+                console.log(result.user);
+                Swal.fire({
+                  position: "center",
+                  icon: "success",
+                  title: "Login Successful!!!",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+                navigate(from, { replace: true });
+            })
+            .catch(error=>{
+                console.log(error);
+            })
     }
 
     const handleCaptchValidation=(e)=>{

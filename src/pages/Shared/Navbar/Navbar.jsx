@@ -39,6 +39,9 @@ const Navbar = () => {
       <li>
         <ActiveLink to="order/salad">Order Food</ActiveLink>
       </li>
+      <li>
+        <ActiveLink to="login">Login</ActiveLink>
+      </li>
     </>
   );
   return (

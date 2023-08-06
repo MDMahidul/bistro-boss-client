@@ -9,7 +9,7 @@ const MenuCategory = ({ items, title, subtitle, img, tSize }) => {
       {title && (
         <Cover
           title={title}
-          tSize={"4xl"}
+          tSize={"text-cover-subtitle"}
           subtitle={subtitle}
           img={img}
         ></Cover>

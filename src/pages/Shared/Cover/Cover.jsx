@@ -15,7 +15,7 @@ const Cover = ({img,title,subtitle,tSize}) => {
             <div className="hero-content text-center text-white bg-gray-800 bg-opacity-60 lg:px-36 py-20">
               <div className="max-w-md">
                 <h1
-                  className={`mb-5 text-${tSize} font-bold font-second_font uppercase`}
+                  className={`mb-5 ${tSize} font-bold font-second_font uppercase`}
                 >
                   {title}
                 </h1>

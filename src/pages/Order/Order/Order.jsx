@@ -13,7 +13,7 @@ const Order = () => {
     const {category} = useParams();
     const initialIndex = categories.indexOf(category)
     const [tabIndex, setTabIndex] = useState(initialIndex);
-    
+
     const [menu] = useMenu();
     const desserts = menu.filter((item) => item.category === "dessert");
     const salad = menu.filter((item) => item.category === "salad");
@@ -29,7 +29,7 @@ const Order = () => {
           img={oderImg}
           title={"Order Food"}
           subtitle={"Would you like to try a dish?"}
-          tSize={"7xl"}
+          tSize={"text-cover-title"}
           height={"800px"}
         ></Cover>
         <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>

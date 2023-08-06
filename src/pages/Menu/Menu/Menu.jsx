@@ -26,7 +26,7 @@ const Menu = () => {
           img={menuImg}
           title={"OUR MENU"}
           subtitle={"Would you like to try a dish?"}
-          tSize={"7xl"}
+          tSize={'text-cover-title'}
         ></Cover>
         {/* offered menu */}
         <div>

@@ -9,7 +9,7 @@ const MenuItem = ({ item }) => {
         className="w-[100px]"
         src={image}
         alt=""
-      />
+      /> 
       <div>
         <h3 className="text-xl font-second_font text-gray-800">
           {name}-----------

@@ -12,10 +12,10 @@ import Swal from 'sweetalert2';
 const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const from = location.state?.form?.pathname || "/";
+    const from = location.state?.from?.pathname || "/";
 
     const { signIn,googleSignIn } = useContext(AuthContext);
-    const [errors,setErrors] = useState('')
+    const [errors,setErrors] = useState('');
     const [disabled,setDisabled] = useState(true);
 
     useEffect(() => {
@@ -136,9 +136,10 @@ const Login = () => {
                         className="input input-bordered bg-white"
                       />
                     </div>
+                    {/* todo: make button disabled for captcha */}
                     <div className="form-control mt-6">
                       <input
-                        disabled={disabled}
+                        disabled={false}
                         className="btn  bg-yellow-600 text-white"
                         type="submit"
                         value="Login"

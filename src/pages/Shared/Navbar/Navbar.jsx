@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ActiveLink from '../ActiveLink/ActiveLink';
 import { AuthContext } from '../../../providers/AuthProvider';
+import { FaShoppingCart } from 'react-icons/fa';
 
 const Navbar = () => {
       const {user,logOut} = useContext(AuthContext);
@@ -46,9 +47,17 @@ const Navbar = () => {
       <li>
         <ActiveLink to="order/salad">Order Food</ActiveLink>
       </li>
+      <li>
+        <Link to="/">
+          <button className="btn -mt-2">
+           <FaShoppingCart></FaShoppingCart>
+            <div className="badge badge-secondary">+0</div>
+          </button>
+        </Link>
+      </li>
       {user ? (
         <>
-        <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
+          <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
             <img
               className="w-10 rounded-full border-red-600 border mr-2"
               src={
@@ -56,9 +65,15 @@ const Navbar = () => {
                   ? user.photoURL
                   : "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png"
               }
-              alt=""/>
-              </div>
-          <button onClick={handleLogOut} className="btn-sm  btn-warning rounded">Log Out</button>
+              alt=""
+            />
+          </div>
+          <button
+            onClick={handleLogOut}
+            className="btn-sm  btn-warning rounded"
+          >
+            Log Out
+          </button>
         </>
       ) : (
         <>

@@ -8,7 +8,7 @@ import useCart from '../../../hooks/useCart';
 const Navbar = () => {
       const {user,logOut} = useContext(AuthContext);
       const [cart] = useCart(); //call the tanstack query hook
-      
+
     const handleLogOut=()=>{
         logOut()
           .then(()=>{})
@@ -51,7 +51,7 @@ const Navbar = () => {
         <ActiveLink to="order/salad">Order Food</ActiveLink>
       </li>
       <li>
-        <Link to="/">
+        <Link to="/dashboard/mycart">
           <button className="btn -mt-2">
            <FaShoppingCart></FaShoppingCart>
             <div className="badge badge-secondary">+{cart?.length || 0}</div>
@@ -97,7 +97,7 @@ const Navbar = () => {
           isScrolled
             ? "bg-white text-red-600"
             : "bg-black text-white bg-opacity-50"
-        } max-w-screen-xl mx-auto transition-all duration-300 shadow`}
+        } px-8 mx-auto transition-all duration-300 shadow`}
       >
         <div className="navbar-start">
           <div className="dropdown">

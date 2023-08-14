@@ -2,7 +2,7 @@ import React from 'react';
 import { FaCalendarAlt, FaCalendarPlus, FaCommentAlt, FaEnvelope, FaHome, FaShoppingCart, FaWallet } from 'react-icons/fa';
 import { FaBagShopping } from 'react-icons/fa6';
 import { FiMenu} from 'react-icons/fi';
-import { Link, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 
 const Dashboard = () => {
     return (
@@ -19,64 +19,64 @@ const Dashboard = () => {
               Open drawer
             </label>
           </div>
-          <div className="drawer-side">
+          <div className="drawer-side bg-yellow-600">
             <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-            <ul className="menu p-4 w-80 h-full bg-yellow-600  uppercase font-second_font text-gray-800 text-base">
+            <ul className="menu p-4 w-80 h-full   uppercase font-second_font text-gray-800 ">
               {/* Sidebar content here */}
               <div className="cursor-pointer normal-case font-second_font text-2xl leading-7 ml-2 font-black mb-10 mt-8">
                 BISTRO BOSS <br />
                 <span className="tracking-[5px]">Restaurant</span>
               </div>
               <li>
-                <Link>
+                <NavLink to="/">
                   <FaHome></FaHome> User home
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link>
+                <NavLink to="/dashboard/reservation">
                   <FaCalendarAlt></FaCalendarAlt> Reservations
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link>
+                <NavLink to="/dashboard/payment">
                   <FaWallet></FaWallet>payment history
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link>
+                <NavLink to="mycart">
                   <FaShoppingCart></FaShoppingCart>My Cart
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link>
+                <NavLink to="/dashboard/review">
                   <FaCommentAlt></FaCommentAlt> Add review
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link>
-                  <FaCalendarPlus></FaCalendarPlus> Add review
-                </Link>
+                <NavLink to="/dashboard/mybookings">
+                  <FaCalendarPlus></FaCalendarPlus> My bookings
+                </NavLink>
               </li>
               <div className="divider bg-gray-300 h-0.5"></div>
               <li>
-                <Link to="/">
+                <NavLink to="/">
                   <FaHome></FaHome> home
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link to="/menu">
+                <NavLink to="/menu">
                   <FiMenu></FiMenu> menu
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link to="/order/salad">
+                <NavLink to="/order/salad">
                   <FaBagShopping></FaBagShopping> shop
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link to="/contact">
+                <NavLink to="/contact">
                   <FaEnvelope></FaEnvelope> contact
-                </Link>
+                </NavLink>
               </li>
             </ul>
           </div>

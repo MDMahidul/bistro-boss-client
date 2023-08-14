@@ -4,7 +4,7 @@ import Cover from '../../Shared/Cover/Cover';
 import { Link } from 'react-router-dom';
 
 const MenuCategory = ({ items, title, subtitle, img, tSize }) => {
-  return ( 
+  return (
     <div>
       {title && (
         <Cover
@@ -21,9 +21,7 @@ const MenuCategory = ({ items, title, subtitle, img, tSize }) => {
       </div>
       <div className="flex justify-center items-center mt-6">
         <Link to={`/order/${title}`}>
-          <button className="btn btn-outline border-0 border-b-2 mt-4 text-gray-900 uppercase hover:text-white ">
-            ORDER YOUR FAVOURITE FOOD
-          </button>
+          <button className="secondary-btn">ORDER YOUR FAVOURITE FOOD</button>
         </Link>
       </div>
     </div>

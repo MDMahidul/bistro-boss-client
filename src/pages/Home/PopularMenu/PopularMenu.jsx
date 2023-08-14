@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import SectionTitle from '../../../components/SectionTitle/SectionTitle';
 import MenuItem from '../../Shared/MenuItem/MenuItem';
 import useMenu from '../../../hooks/useMenu';
+import { Link } from 'react-router-dom';
 
 const PopularMenu = () => {
   const [menu] = useMenu();
@@ -27,9 +28,9 @@ const PopularMenu = () => {
           ))}
         </div>
         <div className="flex justify-center items-center mt-6">
-            <button className="btn btn-outline border-0 border-b-2 mt-4 text-gray-900 uppercase hover:text-white ">
-              View Full Menu
-            </button>
+          <Link to="/menu" className="secondary-btn">
+            View Full Menu
+          </Link>
         </div>
       </section>
     );

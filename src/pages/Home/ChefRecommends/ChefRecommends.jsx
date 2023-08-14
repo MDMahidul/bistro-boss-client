@@ -19,7 +19,7 @@ const ChefRecommends = () => {
               <p className="text-gray-900">
                 Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.
               </p>
-              <button className="btn bg-gray-300 text-yellow-600 text-base border-0 border-b-4 border-yellow-600 bg-opacity-60">
+              <button className="primary-btn">
                 ADD TO CART
               </button>
             </div>
@@ -33,7 +33,7 @@ const ChefRecommends = () => {
               <p className="text-gray-900">
                 Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.
               </p>
-              <button className="btn bg-gray-300 text-yellow-600 text-base border-0 border-b-4 border-yellow-600 bg-opacity-60">
+              <button className="primary-btn">
                 ADD TO CART
               </button>
             </div>
@@ -47,7 +47,7 @@ const ChefRecommends = () => {
               <p className="text-gray-900">
                 Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.
               </p>
-              <button className="btn bg-gray-300 text-yellow-600 text-base border-0 border-b-4 border-yellow-600 bg-opacity-60">
+              <button className="primary-btn">
                 ADD TO CART
               </button>
             </div>

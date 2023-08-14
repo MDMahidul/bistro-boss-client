@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.drawer-side a.active{
+    color: white !important;
+}
+.drawer-side a{
+    background-color: transparent !important;
+}
+
+.primary-btn{
+    @apply btn bg-gray-300 text-yellow-600 text-base border-0 border-b-4 border-yellow-600 bg-opacity-60
+}
+.secondary-btn{
+    @apply btn btn-outline border-0 border-b-2 mt-4 text-gray-900 uppercase hover:text-white 
+}
+ .tertiary-btn{
+    @apply btn bg-yellow-600 text-white hover:bg-white border-0 text-base hover:text-yellow-600
+} 

@@ -3,9 +3,12 @@ import { Link } from 'react-router-dom';
 import ActiveLink from '../ActiveLink/ActiveLink';
 import { AuthContext } from '../../../providers/AuthProvider';
 import { FaShoppingCart } from 'react-icons/fa';
+import useCart from '../../../hooks/useCart';
 
 const Navbar = () => {
       const {user,logOut} = useContext(AuthContext);
+      const [cart] = useCart(); //call the tanstack query hook
+      
     const handleLogOut=()=>{
         logOut()
           .then(()=>{})
@@ -51,7 +54,7 @@ const Navbar = () => {
         <Link to="/">
           <button className="btn -mt-2">
            <FaShoppingCart></FaShoppingCart>
-            <div className="badge badge-secondary">+0</div>
+            <div className="badge badge-secondary">+{cart?.length || 0}</div>
           </button>
         </Link>
       </li>

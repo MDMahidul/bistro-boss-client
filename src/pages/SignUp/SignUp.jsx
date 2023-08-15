@@ -1,15 +1,18 @@
 import { useForm } from "react-hook-form"
-import { FaGoogle } from 'react-icons/fa';
 import authbg from "../../assets/others/authentication.png";
 import loginImg from "../../assets/others/authentication2.png";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from "react-helmet-async";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const SignUp = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+
     const { createUser, updateUserProfile } = useContext(AuthContext);
       const { register, handleSubmit,reset, formState: { errors } } = useForm();
     const onSubmit = (data) =>{
@@ -20,16 +23,28 @@ const SignUp = () => {
                 console.log(loggedUser);
                 updateUserProfile(data.name,data.photourl)
                     .then(()=>{
-                        console.log('user profile update');
-                        reset();
-                        Swal.fire({
-                          position: "center",
-                          icon: "success",
-                          title: "Sign Up Successful!!!",
-                          showConfirmButton: false,
-                          timer: 1500,
+                        const saveUser = {name:data.name,email:data.email}
+                      fetch("http://localhost:5000/users", {
+                        method: "POST",
+                        headers: {
+                          "content-type": "application/json",
+                        },
+                        body: JSON.stringify(saveUser),
+                      })
+                        .then((res) => res.json())
+                        .then((data) => {
+                          if (data.insertedId) {
+                            reset();
+                            Swal.fire({
+                              position: "center",
+                              icon: "success",
+                              title: "Sign Up Successful!!!",
+                              showConfirmButton: false,
+                              timer: 1500,
+                            });
+                            navigate(from, { replace: true });
+                          }
                         });
-                        navigate('/')
                     })
                     .catch(error=>{
                         console.log(error);
@@ -40,7 +55,7 @@ const SignUp = () => {
             })
     }
 
-    const handleGoogleSingin = () => {};
+
     return (
       <>
         <Helmet>
@@ -191,20 +206,8 @@ const SignUp = () => {
                         </label>
                       </div>
                     </div>
-                    <div>
-                      <div className="text-center text-gray-600 mb-3">
-                        <span className="text-xs">OR Sign In With</span>
-                      </div>
-                      <div className=" text-center">
-                        <button
-                          onClick={handleGoogleSingin}
-                          className="rounded-full bg-blue-600 text-white p-2 hover:scale-110 transition-all"
-                        >
-                          <FaGoogle></FaGoogle>
-                        </button>
-                      </div>
-                    </div>
                   </form>
+                   <SocialLogin></SocialLogin>
                 </div>
               </div>
             </div>

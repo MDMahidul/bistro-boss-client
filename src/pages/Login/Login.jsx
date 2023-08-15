@@ -1,12 +1,12 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import authbg from '../../assets/others/authentication.png'
 import loginImg from '../../assets/others/authentication2.png'
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from '../../providers/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FaGoogle } from 'react-icons/fa6';
 import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
+import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
 
 const Login = () => {
@@ -14,7 +14,7 @@ const Login = () => {
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
 
-    const { signIn,googleSignIn } = useContext(AuthContext);
+    const { signIn } = useContext(AuthContext);
     const [errors,setErrors] = useState('');
     const [disabled,setDisabled] = useState(true);
 
@@ -43,24 +43,6 @@ const Login = () => {
             .catch(error=>{
                 console.log(error);
                 setErrors(error.message)
-            })
-    }
-
-    const handleGoogleSingin=()=>{
-        googleSignIn()
-            .then(result=>{
-                console.log(result.user);
-                Swal.fire({
-                  position: "center",
-                  icon: "success",
-                  title: "Login Successful!!!",
-                  showConfirmButton: false,
-                  timer: 1500,
-                });
-                navigate(from, { replace: true });
-            })
-            .catch(error=>{
-                console.log(error);
             })
     }
 
@@ -97,6 +79,7 @@ const Login = () => {
                         </span>
                       </label>
                       <input
+                        required
                         type="email"
                         name="email"
                         placeholder="email"
@@ -110,6 +93,7 @@ const Login = () => {
                         </span>
                       </label>
                       <input
+                        required
                         type="password"
                         placeholder="password"
                         name="password"
@@ -139,7 +123,7 @@ const Login = () => {
                     {/* todo: make button disabled for captcha */}
                     <div className="form-control mt-6">
                       <input
-                        disabled={false}
+                        disabled={disabled}
                         className="btn  bg-yellow-600 text-white"
                         type="submit"
                         value="Login"
@@ -161,20 +145,8 @@ const Login = () => {
                         </label>
                       </div>
                     </div>
-                    <div>
-                      <div className="text-center text-gray-600 mb-3">
-                        <span className="text-xs">OR Sign In With</span>
-                      </div>
-                      <div className=" text-center">
-                        <button
-                          onClick={handleGoogleSingin}
-                          className="rounded-full bg-blue-600 text-white p-2 hover:scale-110 transition-all"
-                        >
-                          <FaGoogle></FaGoogle>
-                        </button>
-                      </div>
-                    </div>
                   </form>
+                  <SocialLogin></SocialLogin>
                 </div>
               </div>
             </div>

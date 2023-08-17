@@ -1,16 +1,17 @@
-import React from 'react';
 import { FaBook, FaCalendarAlt, FaCalendarPlus, FaCommentAlt, FaEnvelope, FaHome, FaShoppingCart, FaWallet } from 'react-icons/fa';
-import { FaBagShopping, FaBookAtlas } from 'react-icons/fa6';
+import { FaBagShopping } from 'react-icons/fa6';
 import { FiMenu} from 'react-icons/fi';
 import { ImSpoonKnife } from "react-icons/im";
 import { TfiMenuAlt } from "react-icons/tfi";
 import { PiUsersThreeFill } from "react-icons/pi";
 import { NavLink, Outlet } from 'react-router-dom';
+import useAdmin from '../hooks/useAdmin';
 
 const Dashboard = () => {
 
     //todo:load data from the server to have dynamic isAdmin based on data
-    const isAdmin = true;
+    //const isAdmin = true;
+    const [isAdmin] = useAdmin();
 
     return (
       <div>
@@ -41,8 +42,8 @@ const Dashboard = () => {
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink to="/dashboard/reservation">
-                      <ImSpoonKnife></ImSpoonKnife> Add Items
+                    <NavLink to="/dashboard/addItem">
+                      <ImSpoonKnife></ImSpoonKnife> Add Item
                     </NavLink>
                   </li>
                   <li>

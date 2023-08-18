@@ -81,7 +81,7 @@ const AddItem = () => {
                   className="select select-bordered bg-white"
                   {...register("category", { required: true })}
                 >
-                  <option disabled >
+                  <option disabled selected>
                     Pick one
                   </option>
                   <option value={'pizza'}>Pizza</option>

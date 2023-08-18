@@ -19,7 +19,7 @@ const MyCart = () => {
           confirmButtonText: "Yes, delete it!",
         }).then((result) => {
           if (result.isConfirmed) {
-            fetch(`http://localhost:5000/carts/${item._id}`, {
+            fetch(`http://localhost:5000/menu/${item._id}`, {
               method: 'DELETE'
             })
               .then((res) => res.json())
@@ -37,7 +37,7 @@ const MyCart = () => {
         });
     }
     return (
-      <div className="w-full mb-10 mt-[-80px]">
+      <div className="w-full mb-10 mt-[-20px]">
         <Helmet>
           <title>Bistro Boss | My Cart</title>
         </Helmet>

@@ -27,10 +27,10 @@ const Dashboard = () => {
               Open drawer
             </label>
           </div>
-          <div className="drawer-side bg-yellow-600">
+          <div className="drawer-side ">
             <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-            <ul className="menu p-4 w-80 h-full   uppercase font-second_font text-gray-800 text-base">
-              <div className="cursor-pointer normal-case font-second_font text-2xl leading-7 ml-2 font-black my-8">
+            <ul className="menu p-4 w-80 h-full   uppercase font-second_font text-gray-800 text-base bg-yellow-600">
+              <div className="cursor-pointer normal-case font-second_font text-2xl leading-7 ml-2 font-black my-8 ">
                 BISTRO BOSS <br />
                 <span className="tracking-[5px]">Restaurant</span>
               </div>

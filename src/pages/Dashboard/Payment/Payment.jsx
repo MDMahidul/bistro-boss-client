@@ -17,9 +17,9 @@ const Payment = () => {
           subHeading="---Make The Payment---"
           heading="PAYMENT"
         ></SectionTitle>
-        <div className="text-3xl mb-5">Payment</div>
-        <Elements stripe={stripePromise}>
-          <CheckoutForm price={price}/>
+        <div className="text-3xl text-gray-800 text-center">Insert Card Info</div>
+        <Elements stripe={stripePromise} >
+          <CheckoutForm  cart={cart} price={price}/>
         </Elements>
       </div>
     );

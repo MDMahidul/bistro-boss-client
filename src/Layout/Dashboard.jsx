@@ -6,12 +6,14 @@ import { TfiMenuAlt } from "react-icons/tfi";
 import { PiUsersThreeFill } from "react-icons/pi";
 import { NavLink, Outlet } from 'react-router-dom';
 import useAdmin from '../hooks/useAdmin';
+import useCart from '../hooks/useCart';
 
 const Dashboard = () => {
 
     //todo:load data from the server to have dynamic isAdmin based on data
     //const isAdmin = true;
     const [isAdmin] = useAdmin();
+    const [cart]=useCart();
 
     return (
       <div>
@@ -82,6 +84,7 @@ const Dashboard = () => {
                   <li>
                     <NavLink to="mycart">
                       <FaShoppingCart></FaShoppingCart>My Cart
+                      <div className="badge badge-secondary">+{cart.length}</div>
                     </NavLink>
                   </li>
                   <li>

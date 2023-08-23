@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 const MyCart = () => {
   const [cart, refetch] = useCart();
   const total = cart.reduce((sum, item) => item.price + sum, 0);
+  const totalPrice = total.toFixed(2);
 
   const handleDelete = (item) => {
     Swal.fire({
@@ -20,9 +21,12 @@ const MyCart = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/carts/${item._id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://bistro-boss-server-xi-peach.vercel.app/carts/${item._id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
@@ -49,7 +53,7 @@ const MyCart = () => {
             Total Item: {cart.length}
           </h3>
           <h3 className="text-3xl text-gray-800 font-smeibold font-second_font">
-            Total Price: ${total}
+            Total Price: ${totalPrice}
           </h3>
           <Link to="/dashboard/payment" className="tertiary-btn ">
             pay

@@ -39,7 +39,7 @@ const Dashboard = () => {
               {isAdmin ? (
                 <>
                   <li>
-                    <NavLink to="/">
+                    <NavLink to="/dashboard/adminhome">
                       <FaHome></FaHome> Admin home
                     </NavLink>
                   </li>
@@ -67,7 +67,7 @@ const Dashboard = () => {
               ) : (
                 <>
                   <li>
-                    <NavLink to="/">
+                    <NavLink to="/dashboard/userhome">
                       <FaHome></FaHome> User home
                     </NavLink>
                   </li>
@@ -84,7 +84,9 @@ const Dashboard = () => {
                   <li>
                     <NavLink to="mycart">
                       <FaShoppingCart></FaShoppingCart>My Cart
-                      <div className="badge badge-secondary">+{cart.length}</div>
+                      <div className="badge badge-secondary">
+                        +{cart.length}
+                      </div>
                     </NavLink>
                   </li>
                   <li>

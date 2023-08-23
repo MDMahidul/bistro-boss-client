@@ -4,9 +4,11 @@ import ActiveLink from '../ActiveLink/ActiveLink';
 import { AuthContext } from '../../../providers/AuthProvider';
 import { FaShoppingCart } from 'react-icons/fa';
 import useCart from '../../../hooks/useCart';
+import useAdmin from '../../../hooks/useAdmin';
 
 const Navbar = () => {
       const {user,logOut} = useContext(AuthContext);
+      const [isAdmin]=useAdmin()
       const [cart] = useCart(); //call the tanstack query hook
 
     const handleLogOut=()=>{
@@ -42,7 +44,7 @@ const Navbar = () => {
         <ActiveLink to="contact"> Contact Us</ActiveLink>
       </li>
       <li>
-        <ActiveLink to="dashboard">Dashboard</ActiveLink>
+        <ActiveLink to={isAdmin ? '/dashboard/adminhome' : '/dashboard/userhome'}>Dashboard</ActiveLink>
       </li>
       <li>
         <ActiveLink to="menu">Our Menu</ActiveLink>
